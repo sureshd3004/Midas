@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Midas Test Automation Test Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.qa.ExtentReportListener.ExtentReporter"/>
+  </listeners>
+  <test thread-count="5" name="Multi Pages(failed)">
+    <classes>
+      <class name="com.crm.qa.testcases.SearchPageTest">
+        <methods>
+          <include name="name"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.SearchPageTest -->
+    </classes>
+  </test> <!-- Multi Pages(failed) -->
+</suite> <!-- Failed suite [Midas Test Automation Test Suite] -->
