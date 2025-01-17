@@ -1,1 +1,21 @@
-/target/
+# Maven build output
+target/
+
+# IDE files (IntelliJ, Eclipse, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Operating system generated files
+.DS_Store   # macOS
+Thumbs.db   # Windows
+
+# Logs
+*.log
+
+# Environment configuration files (optional)
+.env
+
+# Other files you may want to ignore (e.g., temporary files)
+*.tmp
