@@ -37,7 +37,7 @@ public class TestUtil extends TestBase {
 		String currentwindow = driver.getWindowHandle();
 		Set<String> windows = driver.getWindowHandles();
 		for (String windowHandle : windows) {
-			if (!windowHandle.equals(currentwindow)) {
+			if (!windowHandle.equals(currentwindow))  { 
 				 driver.switchTo().window(windowHandle); // Switch to new window
 			        break;
 			}	}
