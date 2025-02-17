@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.midas.qa.testcases.SearchPageTest">
+      <class name="com.midas.qa.testcases.HODTest">
         <methods>
-          <include name="setUp"/>
+          <include name="verifyHomePageTitleTest"/>
           <include name="tearDown"/>
-          <include name="verifySearchBox"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.midas.qa.testcases.SearchPageTest -->
+      </class> <!-- com.midas.qa.testcases.HODTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

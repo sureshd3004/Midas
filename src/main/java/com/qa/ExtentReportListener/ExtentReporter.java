@@ -25,54 +25,26 @@ public class ExtentReporter implements IReporter {
 
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-<<<<<<< HEAD
-        extent = new ExtentReports(System.getProperty("user.dir")+"/TestOutput/Report.html", true);
-=======
         extent = new ExtentReports(System.getProperty("user.dir") + "/TestOutput/Report.html", true);
->>>>>>> 2ba595c (updates)
 
         for (ISuite suite : suites) {
             // Create a suite node in the Extent Report
             String suiteName = suite.getName();
             extent.startTest("Suite: " + suiteName);
-<<<<<<< HEAD
-
-=======
->>>>>>> 2ba595c (updates)
             Map<String, ISuiteResult> result = suite.getResults();
 
             for (ISuiteResult r : result.values()) {
                 ITestContext context = r.getTestContext();
-<<<<<<< HEAD
-
-                // Add passed, failed, and skipped tests to the report
-                buildTestNodes(context.getPassedTests(), LogStatus.PASS);
-                buildTestNodes(context.getFailedTests(), LogStatus.FAIL);              
-=======
               
                 // Add passed, failed, and skipped tests to the report
                 buildTestNodes(context.getPassedTests(), LogStatus.PASS);
                 buildTestNodes(context.getFailedTests(), LogStatus.FAIL);
->>>>>>> 2ba595c (updates)
                 buildTestNodes(context.getSkippedTests(), LogStatus.SKIP);
             }
         }
 
         extent.flush();
-<<<<<<< HEAD
-   //     extent.close();
-        Desktop desktop = Desktop.getDesktop();
 
-        File htmlFile = new File(System.getProperty("user.dir")+"/TestOutput/Report.html");
-        try {
-			desktop.open(htmlFile);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-=======
-
->>>>>>> 2ba595c (updates)
     }
 
     private void buildTestNodes(IResultMap tests, LogStatus status) {
@@ -99,8 +71,6 @@ public class ExtentReporter implements IReporter {
                     test.assignCategory(group);
                 }
 
-<<<<<<< HEAD
-=======
                 // Log test data from DataProvider
                 Object[] testParams = result.getParameters();
                 if (testParams != null && testParams.length > 0) {
@@ -111,7 +81,6 @@ public class ExtentReporter implements IReporter {
                     test.log(LogStatus.INFO, paramLog.toString().trim());
                 }
 
->>>>>>> 2ba595c (updates)
                 // Log the result
                 if (result.getThrowable() != null) {
                     test.log(status, result.getThrowable());
@@ -120,21 +89,14 @@ public class ExtentReporter implements IReporter {
                 }
 
                 extent.endTest(test);
-<<<<<<< HEAD
-            }    }  }
-=======
             }
         }
     }
->>>>>>> 2ba595c (updates)
 
     private Date getTime(long millis) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(millis);
         return calendar.getTime();
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 2ba595c (updates)
 }

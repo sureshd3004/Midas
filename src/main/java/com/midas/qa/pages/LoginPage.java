@@ -4,25 +4,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-<<<<<<< HEAD
-
-=======
->>>>>>> 2ba595c (updates)
 import com.midas.qa.base.TestBase;
 
 public class LoginPage extends TestBase{
 
 	//Page Factory - OR:
 	@FindBy(xpath="//input[@id='UserName']")
-<<<<<<< HEAD
-	WebElement username;
-
-	
-	
-=======
 	WebElement username;	
 
->>>>>>> 2ba595c (updates)
 	@FindBy(xpath="//input[@id='Password']")
 	WebElement password;
 
@@ -41,12 +30,9 @@ public class LoginPage extends TestBase{
 	@FindBy(xpath="//img[@alt='Client Logo']")
 	WebElement Logo;
 
-<<<<<<< HEAD
-=======
 	@FindBy(xpath="//img[@id='btnNew']")
 	WebElement requestIcon;
 
->>>>>>> 2ba595c (updates)
 	//Initializing the Page Objects:
 	public LoginPage(){
 		PageFactory.initElements(driver, this);
@@ -65,15 +51,6 @@ public class LoginPage extends TestBase{
 		username.sendKeys(un);
 		password.sendKeys(pwd);
 		loginBtn.click();
-<<<<<<< HEAD
-		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", conform);
-		
-		clensing.click();   	
-		return new HomePage();
-	}
-=======
 
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", conform);
@@ -85,5 +62,4 @@ public class LoginPage extends TestBase{
 	
 
 
->>>>>>> 2ba595c (updates)
 }

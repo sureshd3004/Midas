@@ -1,11 +1,8 @@
 package com.midas.qa.pages;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
 
 import org.openqa.selenium.By;
->>>>>>> 52f96a3 (updated code)
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -19,88 +16,6 @@ public class RequestPage  extends TestBase{
 	}
 
 	@FindBy(xpath="//*[@id=\"NMQ\"]")
-<<<<<<< HEAD
-    WebElement nounModifierBox;
-	
-	@FindBy(xpath="//li[@class='ApprovedNoun ui-menu-item']")
-	WebElement nounModifierResult;
-	
-	@FindBy(xpath="//div[@class='m-0']//p[@id='lblNMQDesr']")
-	WebElement nounModifierResultDiscription;
-	
-	@FindBy(xpath="//td[@class=\"cc_cv_9 attrRule AttributeName tooltipstered\"]")
-	List<WebElement> NounModiferAttribute;
-	
-	@FindBy(xpath="//input[@value='Save To Draft']")
-	WebElement saveToDraft;
-	
-	@FindBy(xpath="//input[@class=\"ClassToUpper ui-autocomplete-input\" and @id='UOM']")
-	WebElement bUOMTextBox;
-	
-	@FindBy(xpath="(//*[@class=\"ui-menu-item\"])[1]")
-	WebElement UOMResults;
-	
-	@FindBy(xpath="//*[text()='No planning ']")
-	WebElement MRPTypeResults;
-	
-	@FindBy(xpath="//textarea[contains(@class, 'ClassToUpper')]")
-	WebElement OriginalDescriptionText;
-	
-	@FindBy(xpath="//input[@id='ScanDesc']")
-	WebElement scanBtn;
-	
-	@FindBy(xpath="//label[@for='CriSpare_Yes']")
-	WebElement CriticalSpareYes;
-	
-	@FindBy(xpath="//textarea[@id='Critical_Spare_Value']")
-	WebElement CriticalSpareTextBox;
-	
-	@FindBy(xpath="//label[@for='CriSpare_No']")
-	WebElement CriticalSpareNo;
-	
-	@FindBy(xpath="//label[@class=\"select-label-no\"])[2]")
-	WebElement StocktypeOnDemand;
-	
-	@FindBy(xpath="//label[@for='Stock_Yes']")
-	WebElement stockTypeStock;
-	
-	@FindBy(xpath="//textarea[@id='Stock_NonStock_Value']")
-	WebElement stockTypeTextBox;
-	
-	@FindBy(xpath="//a[@class=\"d-flex\"]/label")
-	WebElement materialGroupResults;
-	
-	@FindBy(xpath="//input[@clientlabel='Material_Group']")
-	WebElement materialGroupTextBox;
-	
-	@FindBy(xpath="//input[@id='SupplierPartNumber']")
-	List<WebElement> supplierPartNumberTextBox;
-	
-	@FindBy(xpath="//*[@id='SupplierPartNumber_listbox']/li[2]")
-	WebElement supplierPartNumberResult;
-	
-	@FindBy(xpath="//input[@id='Supplier']")
-	WebElement SupplierTextBox;
-	
-	@FindBy(xpath="//*[@id='ui-id-18']")
-	WebElement supplierResult;
-	
-	@FindBy(xpath="//input[@id='PrimarySupplierID']")
-	WebElement primarySupplierOption;
-	
-	@FindBy(xpath="//*[@id='tblNMQAttributegrid']/tbody")
-	WebElement attributeList;
-	
-	@FindBy(xpath="//div[@class='jconfirm-content']")
-	WebElement alertMesg;
-	
-	@FindBy(xpath="//button[@class=\"btn btn-default\"]")
-	WebElement okBtnForErrer;
-	
-	@FindBy(xpath="//input[@id='btnReset']")
-	WebElement clearbtn;
-	
-=======
 	WebElement nounModifierBox;
 
 	@FindBy(xpath="//li[@class='ApprovedNoun ui-menu-item']")
@@ -240,8 +155,13 @@ public class RequestPage  extends TestBase{
     
     @FindBy(xpath="//input[@value='Description Preview']")
     WebElement descriptionPreview;
+    
+    @FindBy(xpath="//input[@id=\"Manufacturer\"]")
+    WebElement manufacturarNameTextBox;
+    
+    @FindBy(xpath="//div[@class='jconfirm-content']")
+    WebElement manufactrarNameErrorMesg;
 
->>>>>>> 52f96a3 (updated code)
 	public String validateRequestPageTitle(){
 		try {	Thread.sleep(1200);} catch (InterruptedException e) {}
 		return driver.getTitle();
@@ -253,13 +173,8 @@ public class RequestPage  extends TestBase{
 		return nounModifierResultDiscription.getText();
 	}
 	public void selectBUOMValue() {
-<<<<<<< HEAD
-	     bUOMTextBox.sendKeys("*");
-	     UOMResults.click();     
-=======
 		bUOMTextBox.sendKeys("*");
 		UOMResults.click();     
->>>>>>> 52f96a3 (updated code)
 	}
 	public void ScanOrginalDescription(String testData) {
 		OriginalDescriptionText.sendKeys(testData);
@@ -275,22 +190,15 @@ public class RequestPage  extends TestBase{
 	public void clickSave() {
 		TestUtil.scrollAndClick(saveToDraft);
 	}
-<<<<<<< HEAD
-=======
 	public void clickSendToApprov() {
 		
 		TestUtil.scrollAndClick(sendToApproval);
 	}
->>>>>>> 52f96a3 (updated code)
 	public void acceptErrorMesg() {
 		TestUtil.waitAndClickElement(okBtnForErrer);
 	}
 	public void selectMaterialGroup() {
 		materialGroupTextBox.sendKeys("*");
-<<<<<<< HEAD
-	//	try {	Thread.sleep(2357);	} catch (InterruptedException e) {}
-=======
->>>>>>> 52f96a3 (updated code)
 		TestUtil.waitAndClickElement(materialGroupResults);
 	}
 
@@ -312,17 +220,6 @@ public class RequestPage  extends TestBase{
 		return	TestUtil.waitAndGetText(nounModifierResultDiscription);
 	}
 	public String getAttributes() {
-<<<<<<< HEAD
-		
-		return	TestUtil.waitAndGetText(attributeList);
-	}
-	public boolean verifyAttributes(String attributes) {
-		
-		boolean allMatch = true;
-
-		for (WebElement element : NounModiferAttribute) {
-			
-=======
 
 		return	TestUtil.waitAndGetText(attributeList);
 	}
@@ -332,7 +229,6 @@ public class RequestPage  extends TestBase{
 
 		for (WebElement element : NounModiferAttribute) {
 
->>>>>>> 52f96a3 (updated code)
 			if (!attributes.contains(element.getText())) {
 				allMatch = false;
 				break;
@@ -345,35 +241,21 @@ public class RequestPage  extends TestBase{
 	}
 
 	public void sendTextInCriticalSpareBox(String testData) {
-<<<<<<< HEAD
-	CriticalSpareTextBox.sendKeys(testData);
-=======
 		CriticalSpareTextBox.sendKeys(testData);
->>>>>>> 52f96a3 (updated code)
 	}
 
 	public void sendTextStockTypeTextBox(String testData) {
 		stockTypeTextBox.sendKeys(testData);
-<<<<<<< HEAD
-		
-	}
-
-	public void sendtextOrginalDescriptionTextBox(String string) {
-	    OriginalDescriptionText.sendKeys("test");
-=======
 
 	}
 
 	public void sendtextOrginalDescriptionTextBox(String string) {
 		OriginalDescriptionText.sendKeys("test");
->>>>>>> 52f96a3 (updated code)
 	}
 
 	public void clickClear() {
 		clearbtn.click();
 	}
-<<<<<<< HEAD
-=======
 
 	public void SelectCriticalMatrix() {
 		criticalMatrixBtn.click();
@@ -427,12 +309,21 @@ public class RequestPage  extends TestBase{
 		return expText;
 	}
 
-	public void verifyAtributeUnits() {		
+	public boolean verifyAtributeUnits() {		
 		for (WebElement webElement : attributeValueList) {
-			webElement.sendKeys("*");
-			
+			webElement.sendKeys("*");			
 		}
+		return false;
 	     
 	}
->>>>>>> 52f96a3 (updated code)
+
+	public String verifyManufactrarValidName(String testData) {
+	manufacturarNameTextBox.sendKeys(testData);
+	
+	return manufactrarNameErrorMesg.getText();
+	}
+
+	public void sendToApproval() {
+		TestUtil.scrollAndClick(sendToApproval);	
+	}
 }

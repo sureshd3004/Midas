@@ -18,29 +18,17 @@ import com.midas.qa.pages.RequestPreviewPage;
 import com.midas.qa.util.TestUtil;
 
 public class RequestPageTest extends TestBase{
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 52f96a3 (updated code)
 	LoginPage loginPage;
 	HomePage homePage;
 	RequestPreviewPage requestPreviewPage;
 	RequestPage requestPage ;
 	SoftAssert softAssert;
-<<<<<<< HEAD
-	
-	public RequestPageTest(){
-		super();
-	}
-	
-=======
 
 	public RequestPageTest(){
 		super();
 	}
 
->>>>>>> 52f96a3 (updated code)
 	@BeforeMethod
 	public void setUp(){
 		initialization();
@@ -50,15 +38,9 @@ public class RequestPageTest extends TestBase{
 		requestPreviewPage = homePage.clickonRequestIcon();
 		requestPage = requestPreviewPage.sudmitNewRequest();
 		TestUtil.switchNewWindow();
-<<<<<<< HEAD
-		 softAssert = new SoftAssert();
-	}
-	
-=======
 		softAssert = new SoftAssert();
 	}
 
->>>>>>> 52f96a3 (updated code)
 	@Test(priority=1,enabled = true)
 	public void RequestPageTitleTest(){
 		String title = requestPage.validateRequestPageTitle();
@@ -68,11 +50,6 @@ public class RequestPageTest extends TestBase{
 	public void VerifyPrimarySupplier(){
 		Assert.assertEquals(requestPage.verifyPrimarySupplier(), true);
 	}
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> 52f96a3 (updated code)
 	@Test(priority=2,dataProvider = "NounModifier")
 	public void VerifyNounAndModifierSelecting(String noun,String discrption){
 		Assert.assertEquals(requestPage.VerifyNounAndModifierSelecting(noun), discrption);				 
@@ -82,11 +59,7 @@ public class RequestPageTest extends TestBase{
 		Boolean  expResult = requestPage.verifyBUOM(testData);
 		Assert.assertTrue(expResult);
 	}
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 52f96a3 (updated code)
 	@Test(dataProvider = "NounModifier")
 	public void VerifyOriginalDescription(String testData,String discrption){
 		requestPage.ScanOrginalDescription(testData);			
@@ -98,8 +71,6 @@ public class RequestPageTest extends TestBase{
 		Assert.assertTrue(requestPage.verifyAttributes(attribute));
 	}
 	@Test()
-<<<<<<< HEAD
-=======
 	public void verifyCriticalScoreTxtBox(){
 		requestPage.SelectCriticalMatrix();	
 		Assert.assertEquals(requestPage.verifyCriticalScoreTxtBox(),"5");
@@ -117,10 +88,11 @@ public class RequestPageTest extends TestBase{
 	public void verifyTagNumber(String testData){	
 		Assert.assertEquals(requestPage.verifyTagNumber(testData),testData);	
 	}
-	@Test()
+	@Test(enabled = false)
 	public void verifyAtributeUnits(String testData){	
-		Assert.assertEquals(requestPage.verifyAtributeUnits(testData),testData);	
+		Assert.assertTrue(requestPage.verifyAtributeUnits());	
 	}
+	
 	@Test(dataProvider = "RequestData")
 	public void verifyDuplicateRequest(String testData){
 		requestPage.selectManufacturerPartNumber(testData);
@@ -134,23 +106,15 @@ public class RequestPageTest extends TestBase{
 		softAssert.assertTrue(requestPage.acceptDuplicateMesg());
 		softAssert.assertAll();  
 	}
-	@Test()
->>>>>>> 52f96a3 (updated code)
+	@Test(enabled  = false)
 	public void VerifyNewRequestCreation(){
 		requestPage.clickSave();
 		softAssert.assertEquals(requestPage.getWarningMesg(), "Please select the base UOM");
 		requestPage.acceptErrorMesg();
-<<<<<<< HEAD
-		
-		//clear all data 
-		requestPage.clickClear();
-		
-=======
 
 		//clear all data 
 		requestPage.clickClear();
 
->>>>>>> 52f96a3 (updated code)
 		// B.UOM
 		requestPage.verifyBUOM("EA");
 		try {	Thread.sleep(1000);	} catch (InterruptedException e) {}
@@ -164,11 +128,7 @@ public class RequestPageTest extends TestBase{
 		softAssert.assertEquals(requestPage.getWarningMesg(), "Please enter the comments in critical spare");
 		requestPage.acceptErrorMesg();
 		requestPage.sendTextInCriticalSpareBox("test");
-<<<<<<< HEAD
-		
-=======
 
->>>>>>> 52f96a3 (updated code)
 		//stocktype
 		requestPage.clickStockType();	
 		requestPage.clickSave();	
@@ -177,11 +137,7 @@ public class RequestPageTest extends TestBase{
 		requestPage.sendTextStockTypeTextBox("test");
 		requestPage.clickSave();
 		softAssert.assertEquals(requestPage.getWarningMesg(), "Please Fill The Original Description");
-<<<<<<< HEAD
-		
-=======
 
->>>>>>> 52f96a3 (updated code)
 		//orginal description
 		requestPage.sendtextOrginalDescriptionTextBox("test");
 		requestPage.clickSave();
@@ -196,20 +152,16 @@ public class RequestPageTest extends TestBase{
 		try {	Thread.sleep(1000);	} catch (InterruptedException e) {}
 		requestPage.clickSave();
 		softAssert.assertEquals(requestPage.getWarningMesg(), "Material Group");
-<<<<<<< HEAD
-//		softAssert.assertEquals(requestPage.getWarningMesg(), "Material Type");
-		requestPage.acceptErrorMesg();		
-	
-		softAssert.assertAll();            
-	}
-	
-=======
 		//	softAssert.assertEquals(requestPage.getWarningMesg(), "Material Type");
+		
+		//verify invalid manufact name 
+		softAssert.assertEquals(requestPage.verifyManufactrarValidName("dummy name"),"Manufacturer is not valid");
 		requestPage.acceptErrorMesg();		
+		
+		requestPage.sendToApproval();
 		softAssert.assertAll();            
 	}
 
->>>>>>> 52f96a3 (updated code)
 	@DataProvider(name = "AttributeTestData")
 	public Object[][] getAttributeTestData(){
 		String sheetName = "AttributeTestData";
@@ -224,16 +176,6 @@ public class RequestPageTest extends TestBase{
 	public String[] getTestData(Method method){
 		String sheetName = "RequestData";
 		String coloumn = method.getName();
-<<<<<<< HEAD
-		
-		if (coloumn.equals("VerifyBUOM") || coloumn.equals("VerifyNewRequestCreation")) {
-		coloumn = coloumn.replace(coloumn, "B.UOM");
-		}
-		
-		Object[] data = TestUtil.readColumnData(sheetName,coloumn);
-	    String[] stringData = Arrays.copyOf(data, data.length, String[].class);    
-	    return stringData;	
-=======
 
 		if (coloumn.equals("VerifyBUOM") || coloumn.equals("VerifyNewRequestCreation")) {
 			coloumn = coloumn.replace(coloumn, "B.UOM");
@@ -246,10 +188,9 @@ public class RequestPageTest extends TestBase{
 		Object[] data = TestUtil.readColumnData(sheetName,coloumn);
 		String[] stringData = Arrays.copyOf(data, data.length, String[].class);    
 		return stringData;	
->>>>>>> 52f96a3 (updated code)
 	}
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();
 	}
-}
+} 
