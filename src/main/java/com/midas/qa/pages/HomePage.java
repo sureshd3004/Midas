@@ -20,7 +20,17 @@ public class HomePage extends TestBase {
 
 	@FindBy(xpath = "//a[contains(text(),'Tasks')]")
 	WebElement tasksLink;
+<<<<<<< HEAD
 
+=======
+	
+	@FindBy(xpath="//b[@id='spnUserName']")
+	WebElement userName;
+	
+	@FindBy(xpath="//img[@id='btnNew']")
+	WebElement singleRequestIcon;
+	
+>>>>>>> 2ba595c (updates)
 	// Initializing the Page Objects:
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -30,9 +40,24 @@ public class HomePage extends TestBase {
 		return driver.getTitle();
 	}
 	
+<<<<<<< HEAD
 	public SearchPage clickOnContactsLink(){
 		searchLink.click();
 		return new SearchPage();
 	}
 	
+=======
+	public SearchPage clickOnSearchIcon(){
+		searchLink.click();
+		return new SearchPage();
+	}
+	public boolean validateUserName() {
+		   return userName.getText().equalsIgnoreCase(prop.getProperty("username"));
+		}
+
+	public RequestPreviewPage clickonRequestIcon() {
+		singleRequestIcon.click();
+		return new RequestPreviewPage();
+	}
+>>>>>>> 2ba595c (updates)
 }

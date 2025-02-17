@@ -15,7 +15,10 @@ public class HomePageTest extends TestBase {
 	HomePage homePage;
 	TestUtil testUtil;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2ba595c (updates)
 	public HomePageTest() {
 		super();
 	}
@@ -26,14 +29,28 @@ public class HomePageTest extends TestBase {
 		testUtil = new TestUtil();
 		loginPage = new LoginPage();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+<<<<<<< HEAD
 	}
 	
+=======
+	}	
+>>>>>>> 2ba595c (updates)
 	
 	@Test(priority=1,enabled = true,description = "TC001")
 	public void verifyHomePageTitleTest(){
 		String homePageTitle = homePage.verifyHomePageTitle();
 		Assert.assertEquals(homePageTitle, "ssruat.infoplusmdm","Home page title not matched");
+<<<<<<< HEAD
 	}
+=======
+		
+	}
+	@Test(priority=2)
+	public void verifyuserName(){	
+		Assert.assertTrue(homePage.validateUserName());		
+	}
+	
+>>>>>>> 2ba595c (updates)
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();
