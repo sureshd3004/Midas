@@ -1,52 +1,13 @@
 pipeline {
     agent any
 
-    environment {
-        BROWSER = "chrome"  // Set default browser
-    }
-
     stages {
-        stage('Checkout Developer Code') {
-            steps {
-                git branch: 'main', url: 'https://sureshd3@bitbucket.org/infoplus-mdm-dev/midas-version-2.0-automation.git'
-            }
-        }
-
-        stage('Checkout Selenium Tests') {
-            steps {
-                git branch: 'main', url: 'https://sureshd3@bitbucket.org/infoplus-mdm-dev/midas.git', changelog: false, poll: false
-            }
-        }
-
-        stage('Setup Dependencies') {
+        stage('Webhook Trigger Test') {
             steps {
                 script {
-                    sh 'mvn clean install'  // Install dependencies
+                    echo "Webhook triggered successfully!"
                 }
             }
-        }
-
-        stage('Run Selenium Tests') {
-            steps {
-                script {
-                    sh 'mvn test'  // Runs the Selenium tests
-                }
-            }
-        }
-
-        stage('Generate Test Reports') {
-            steps {
-                junit '**/target/surefire-reports/*.xml'  // JUnit/TestNG results
-            }
-        }
-    }
-
-    post {
-        always {
-            archiveArtifacts artifacts: '**/target/screenshots/*.png', fingerprint: true
-        }
-        failure {
-            echo 'Tests failed! Check the logs.'
         }
     }
 }

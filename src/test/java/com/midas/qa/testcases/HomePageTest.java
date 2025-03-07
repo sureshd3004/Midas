@@ -33,7 +33,8 @@ public class HomePageTest extends TestBase {
 		Assert.assertEquals(homePageTitle, "ssruat.infoplusmdm","Home page title not matched");
 		
 	}
-	@Test(priority=2)
+	
+	@Test()
 	public void verifyuserName(){	
 		Assert.assertTrue(homePage.validateUserName());		
 	}

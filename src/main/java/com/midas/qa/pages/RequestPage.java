@@ -11,7 +11,7 @@ import com.midas.qa.util.TestUtil;
 
 public class RequestPage  extends TestBase{
 
-	RequestPage(){
+	public RequestPage(){
 		PageFactory.initElements(driver, this);
 	}
 
@@ -69,7 +69,7 @@ public class RequestPage  extends TestBase{
 	@FindBy(xpath="//textarea[@id='Stock_NonStock_Value']")
 	WebElement stockTypeTextBox;
 
-	@FindBy(xpath="//a[@class=\"d-flex\"]/label")
+	@FindBy(xpath="//label[normalize-space()='1000']")
 	WebElement materialGroupResults;
 
 	@FindBy(xpath="//input[@clientlabel='Material_Group']")
@@ -167,8 +167,8 @@ public class RequestPage  extends TestBase{
 		return driver.getTitle();
 	}
 
-	public String VerifyNounAndModifierSelecting(String testData) {
-		nounModifierBox.sendKeys(testData);
+	public String VerifyNounAndModifierSelecting() {
+		nounModifierBox.sendKeys("*");
 		TestUtil.waitAndClickElement(nounModifierResult);
 		return nounModifierResultDiscription.getText();
 	}
@@ -181,11 +181,13 @@ public class RequestPage  extends TestBase{
 		try {   Thread.sleep(1000);	} catch (InterruptedException e) {}
 		TestUtil.waitAndClickElement(scanBtn);		
 	}
-	public void clickCriticalSpare() {
-		CriticalSpareYes.click();
+	public void clickCriticalSpare(String value) {
+		driver.findElement(By.xpath("//label[@for='CriSpare_"+value+"']")).click();
+	//	CriticalSpareYes.click();
 	}
-	public void clickStockType() {
-		stockTypeStock.click();
+	public void clickStockType(String value) {
+		driver.findElement(By.xpath("//label[@for='Stock_"+value+"']")).click();
+	//	stockTypeStock.click();
 	}
 	public void clickSave() {
 		TestUtil.scrollAndClick(saveToDraft);
@@ -228,7 +230,6 @@ public class RequestPage  extends TestBase{
 		boolean allMatch = true;
 
 		for (WebElement element : NounModiferAttribute) {
-
 			if (!attributes.contains(element.getText())) {
 				allMatch = false;
 				break;
@@ -249,8 +250,8 @@ public class RequestPage  extends TestBase{
 
 	}
 
-	public void sendtextOrginalDescriptionTextBox(String string) {
-		OriginalDescriptionText.sendKeys("test");
+	public void sendtextOrginalDescriptionTextBox(String testData) {
+		OriginalDescriptionText.sendKeys(testData);
 	}
 
 	public void clickClear() {
@@ -318,12 +319,20 @@ public class RequestPage  extends TestBase{
 	}
 
 	public String verifyManufactrarValidName(String testData) {
-	manufacturarNameTextBox.sendKeys(testData);
-	
+	manufacturarNameTextBox.sendKeys(testData);	
 	return manufactrarNameErrorMesg.getText();
 	}
 
 	public void sendToApproval() {
-		TestUtil.scrollAndClick(sendToApproval);	
+		TestUtil.scrolltoElement(sendToApproval);	
+		sendToApproval.click();
 	}
+
+	public void selectValuationType(String testData) {
+		driver.findElement(By.xpath("//span[@class='k-input'][normalize-space()='Select']")).click();
+		driver.findElement(By.xpath("//li[text()='"+testData+"']")).click();		
+	}
+
+	
+	
 }

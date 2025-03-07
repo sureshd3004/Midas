@@ -39,7 +39,12 @@ public class SearchResultPageTest extends TestBase{
 		TestUtil.switchNewWindow();
 		searchPage.searchBoxTest("TEST");
 	}
+	
+	@Test(description = "TC010")
+	public void verifyAuditChange() {
+		Assert.assertEquals(searchResultPage.verifyAuditChange(), true);
 
+	}
 	@Test(priority=1 , description = "TC006")
 	public void verifySearchResultPageTitle(){
 		Assert.assertEquals(searchResultPage.verifySearchTitle() , "MidasMasterSearch");
@@ -54,11 +59,12 @@ public class SearchResultPageTest extends TestBase{
 		Assert.assertEquals(searchResultPage.searchResultColoumns(), 9);
 
 	}
-	@Test(description = "TC009")
+	@Test(description = "TC010")
 	public void filtersClickTest() throws InterruptedException {
 		
 		Assert.assertEquals(searchResultPage.filtersClickTest(), "done");		
 	}
+	
 	@Test
 	public void additionalSettingsRequestNumber(String testData){
 

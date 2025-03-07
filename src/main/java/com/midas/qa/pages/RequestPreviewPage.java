@@ -18,10 +18,10 @@ public class RequestPreviewPage extends TestBase{
 	@FindBy(xpath="//input[@id='btnSubmit']")
 	WebElement sudmitBtn;
 
-	@FindBy(xpath="//*[@id=\"pageContainer\"]")
+	@FindBy(xpath="//*[@id='pageContainer']")
 	WebElement IframeOfSingleRequest;
 
-	@FindBy(xpath="//input[@aria-owns=\"MaterialType_listbox\"]")
+	@FindBy(xpath="//input[@aria-owns='MaterialType_listbox']")
 	WebElement materialTypetextBox;
 
 	@FindBy(xpath="//*[@id=\"MaterialType_listbox\"]/li")
@@ -64,6 +64,9 @@ public class RequestPreviewPage extends TestBase{
 		try {	Thread.sleep(800);} catch (InterruptedException e) {}
 		sudmitBtn.click();
 		try {	Thread.sleep(800);} catch (InterruptedException e) {}
+		TestUtil.switchNewWindow();
 		return new RequestPage();
-	}	
+	}
+
+	
 }

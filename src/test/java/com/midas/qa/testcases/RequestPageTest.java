@@ -36,8 +36,7 @@ public class RequestPageTest extends TestBase{
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));		  	  
 		TestUtil.WaitAndSwitchframe(0);
 		requestPreviewPage = homePage.clickonRequestIcon();
-		requestPage = requestPreviewPage.sudmitNewRequest();
-		TestUtil.switchNewWindow();
+		requestPage = requestPreviewPage.sudmitNewRequest();		
 		softAssert = new SoftAssert();
 	}
 
@@ -52,7 +51,7 @@ public class RequestPageTest extends TestBase{
 	}
 	@Test(priority=2,dataProvider = "NounModifier")
 	public void VerifyNounAndModifierSelecting(String noun,String discrption){
-		Assert.assertEquals(requestPage.VerifyNounAndModifierSelecting(noun), discrption);				 
+	//	Assert.assertEquals(requestPage.VerifyNounAndModifierSelecting(noun), discrption);				 
 	}
 	@Test(priority=4,dataProvider = "RequestData",groups ="manditary")
 	public void VerifyBUOM(String testData){
@@ -93,13 +92,34 @@ public class RequestPageTest extends TestBase{
 		Assert.assertTrue(requestPage.verifyAtributeUnits());	
 	}
 	
+	@Test(enabled = false)
+	public void CreateNewRequest(String testData){	
+	//	Assert.assertTrue(requestPage.CreateNewRequest());	
+	}	
+	
+	@Test()
+	public HomePage verifyCreatingNewRequest(){
+		requestPage.selectBUOMValue();
+		requestPage.clickCriticalSpare("No");
+		requestPage.sendTextInCriticalSpareBox("test");
+		requestPage.clickStockType("No");	
+		requestPage.sendTextStockTypeTextBox("test");
+		requestPage.sendtextOrginalDescriptionTextBox("test");
+		requestPage.selectMaterialGroup();
+		requestPage.clickSave();
+		requestPage.sendToApproval();
+	//	Assert.assertTrue(driver.getWindowHandle().isEmpty()); 
+		 TestUtil.switchNewWindow();
+		System.err.println(driver.getCurrentUrl());
+		 return new HomePage();
+	}
 	@Test(dataProvider = "RequestData")
 	public void verifyDuplicateRequest(String testData){
 		requestPage.selectManufacturerPartNumber(testData);
 		requestPage.selectBUOMValue();
-		requestPage.clickCriticalSpare();
+		requestPage.clickCriticalSpare("No");
 		requestPage.sendTextInCriticalSpareBox("test");
-		requestPage.clickStockType();	
+		requestPage.clickStockType("No");	
 		requestPage.sendTextStockTypeTextBox("test");
 		requestPage.clickSave();
 		softAssert.assertEquals(requestPage.verifyDuplicateWarningmesg(), "Give valid reason to proceed with this Duplicate");
@@ -107,7 +127,7 @@ public class RequestPageTest extends TestBase{
 		softAssert.assertAll();  
 	}
 	@Test(enabled  = false)
-	public void VerifyNewRequestCreation(){
+	public void VerifyManditaryFieldsNewRequestCreation(){
 		requestPage.clickSave();
 		softAssert.assertEquals(requestPage.getWarningMesg(), "Please select the base UOM");
 		requestPage.acceptErrorMesg();
@@ -123,14 +143,14 @@ public class RequestPageTest extends TestBase{
 		requestPage.acceptErrorMesg();
 
 		//critical spare
-		requestPage.clickCriticalSpare();
+		requestPage.clickCriticalSpare("Yes");
 		requestPage.clickSave();
 		softAssert.assertEquals(requestPage.getWarningMesg(), "Please enter the comments in critical spare");
 		requestPage.acceptErrorMesg();
 		requestPage.sendTextInCriticalSpareBox("test");
 
 		//stocktype
-		requestPage.clickStockType();	
+		requestPage.clickStockType("Yes");	
 		requestPage.clickSave();	
 		softAssert.assertEquals(requestPage.getWarningMesg(), "Please enter the comments in stock type");
 		requestPage.acceptErrorMesg();

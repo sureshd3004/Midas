@@ -19,7 +19,7 @@ public class LoginPage extends TestBase{
 	WebElement loginBtn;
 
 	@FindBy(xpath = "//button[@type='button' and text()='Confirm']")
-	WebElement conform;
+	WebElement Confirm;
 
 	@FindBy(xpath="//h2[text()='Cleansing ']")
 	WebElement clensing;
@@ -52,8 +52,8 @@ public class LoginPage extends TestBase{
 		password.sendKeys(pwd);
 		loginBtn.click();
 
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", conform);
+	//	JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", Confirm);
 
 		clensing.click();   	
 		return new HomePage();

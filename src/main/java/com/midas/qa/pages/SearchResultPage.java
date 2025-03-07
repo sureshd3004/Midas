@@ -21,6 +21,21 @@ import com.midas.qa.util.TestUtil;
 
 public class SearchResultPage extends TestBase {
 
+	@FindBy(xpath="//span[text()='Request Type :']/following-sibling::span")
+	WebElement requestType;
+
+	@FindBy(xpath="(//tbody/tr/td[@class=\"cr_td_1 jc_box_1\"])[2]")
+	WebElement changeTable;
+
+	@FindBy(xpath="//div[@class=\"jconfirm-content\"]")
+	WebElement alertMesg;
+
+	@FindBy(xpath="//img[@id=\"audit_report_page\"]")
+	WebElement auditBtn;
+
+	@FindBy(xpath="//input[@id='audit-change-btn']")
+	WebElement changeBtn;
+
 	@FindBy(xpath="//div[@class='ms_defult ms_row_1 ms_search_animation']")
 	WebElement hearde;
 
@@ -250,142 +265,142 @@ public class SearchResultPage extends TestBase {
 
 	@FindBy(xpath="//input[@id=\"Storage_Costs_Code\"]")
 	WebElement storageCostsCodeFilterBox;
-	
+
 	@FindBy(xpath="//input[@id=\"GR_Processing_Time\"]")
 	WebElement GRProcessingTimeFilterBox;
-	
+
 	@FindBy(xpath="//input[@id=\"Planned_Delivery_Time_Days\"]")
 	WebElement plannedDeliveryTimeFilterBox;
-	
+
 	@FindBy(xpath="//input[@aria-describedby=\"Procurement_Type_taglist\"]")
 	WebElement procurementTypeFilterBox;
-	
+
 	@FindBy(xpath="//input[@id=\"Production_Storage_Location\"]")
 	WebElement productionStorageLocationFilterBox;
-	
+
 	@FindBy(xpath="//input[@id=\"Safety_Stock\"]")
 	WebElement safetyStockFilterBox;
-	
+
 	@FindBy(xpath="//input[@aria-describedby=\"Spl_Procurement_Type_taglist\"]")
 	WebElement specialProcurementFilterBox;
-	
+
 	@FindBy(xpath="//input[@id='Storage_Location_For_EP']")
 	WebElement storageLocationForEPFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement GRProcessingTimeResult;
-	
+
 	@FindBy(xpath="")
 	WebElement plannedDeliveryTimeResult;
-	
+
 	@FindBy(xpath="")
 	WebElement procurementTypeResult;
-	
+
 	@FindBy(xpath="")
 	WebElement productionStorageLocationResult;
-	
+
 	@FindBy(xpath="")
 	WebElement safetyStockResult;
-	
+
 	@FindBy(xpath="")
 	WebElement specialProcurementResult;
-	
+
 	@FindBy(xpath="")
 	WebElement storageLocationForEPResult;
-	
+
 	@FindBy(xpath="")
 	WebElement availabilityCheckResult;
-	
+
 	@FindBy(xpath="")
 	WebElement CCPhysInvFilterBoxResult;
-	
+
 	@FindBy(xpath="//input[@id=\"CC_Phys_Inv\"]")
 	WebElement CCPhysInvFilterBox;
-	
+
 	@FindBy(xpath="//input[@aria-describedby=\"Expiration_Date_taglist\"]")
 	WebElement expirationDateFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement expirationDateResult;
-	
+
 	@FindBy(xpath="//input[@id=\"Label_Form\"]")
 	WebElement labelFormFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement labelFormResult;
-	
+
 	@FindBy(xpath="//input[@id=\"Label_Type\"]")
 	WebElement labelTypeFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement labelTypeResult;
-	
+
 	@FindBy(xpath="//input[@id=\"Period_Ind_for_SLED\"]")
 	WebElement periodIndForSledFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement periodIndForSledResult;
-	
+
 	@FindBy(xpath="")
 	WebElement storageBinResult;
-	
+
 	@FindBy(xpath="//input[@aria-describedby=\"Storage_Bin_taglist\"]")
 	WebElement storageBinFilterBox;
-	
+
 	@FindBy(xpath="//input[@aria-describedby=\"Profit_Center_taglist\"]")
 	WebElement profitCenterFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement profitCenterResult;
-	
+
 	@FindBy(xpath="//input[@]")
 	WebElement movingAveragePriceFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement movingAveragePriceResult;
-	
+
 	@FindBy(xpath="//input[@aria-describedby=\"Price_Control_Indicator_taglist\"]")
 	WebElement priceControlIndicatorFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement priceControlIndicatorResult;
-	
+
 	@FindBy(xpath="//input[@id=\"Price_Unit\"]")
 	WebElement priceUnitFilterBox;
-	
+
 	@FindBy(xpath="//input[@]")
 	WebElement priceUnitResult;
-	
+
 	@FindBy(xpath="//input[@id=\"Standard_Price\"]")
 	WebElement standardPriceFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement standardPriceResult;
-	
+
 	@FindBy(xpath="//input[@aria-describedby=\"Valuation_Category_taglist\"]")
 	WebElement valuationCategoryFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement valuationCategoryResult;
-	
+
 	@FindBy(xpath="//input[@aria-describedby=\"Valuation_Class_taglist\"]")
 	WebElement valuationClassFilterBox;
-	
+
 	@FindBy(xpath="")
 	WebElement valuationClassResult;
-	
+
 	@FindBy(xpath="//input[@aria-describedby=\"Availability_check_taglist\"]")
 	WebElement availabilityCheckFilterBox;
-	
+
 	@FindBy(xpath="//*[@id=\"plantERPMatchFields\"]/tr[40]/td[2]")
 	WebElement taktTimeResult;
-	
+
 	@FindBy(xpath="//input[@id=\"Takt_Time\"]")
 	WebElement taktTimeFilterBox;
-	
+
 	@FindBy(xpath="//*[@id=\"plantERPMatchFields\"]/tr[1]/td[2]")
 	WebElement storageLocationResult;
-	
+
 	@FindBy(xpath="//*[@id=\"plantERPMatchFields\"]/tr[42]/td[2]")
 	WebElement roundingValueResult;
 
@@ -400,7 +415,7 @@ public class SearchResultPage extends TestBase {
 
 	@FindBy(xpath="//*[@id=\"plantERPMatchFields\"]/tr[38]/td[2]")
 	WebElement storageCostsCodeResult;
-	
+
 	@FindBy(xpath="//*[@id=\"plantERPMatchFields\"]/tr[6]/td[2]")
 	WebElement MRPTypeResult;
 
@@ -1506,7 +1521,7 @@ public class SearchResultPage extends TestBase {
 	public boolean verifyStorageLocationFilter(String testData) {
 		TestUtil.waitAndClickElement(ERPFieldsFilter);
 		erpFieldsFilter.get(3).click();
-        storageLocationFilterBox.sendKeys(testData);
+		storageLocationFilterBox.sendKeys(testData);
 
 		try {Thread.sleep(1000);   } catch (InterruptedException e) {	}
 		storageLocationFilterBox.sendKeys(Keys.ENTER);	
@@ -2008,6 +2023,24 @@ public class SearchResultPage extends TestBase {
 				break;
 			}      }
 		return allMatch;
+	}
+
+	public boolean verifyAuditChange() {
+		boolean actValue = false;
+		for (WebElement element : viewMores) {
+			TestUtil.waitAndClickElement(element);
+
+			TestUtil.waitAndClickElement(auditBtn);
+			TestUtil.switchNewWindow();
+			TestUtil.waitAndClickElement(changeBtn);
+
+			if (requestType.getText()=="New Request") {
+				actValue = alertMesg.getText().equalsIgnoreCase("There is no change.");
+			}else if(requestType.getText()=="Change"){				
+				actValue = changeTable.getText().equalsIgnoreCase("Previous Value");
+			}
+		}
+		return actValue;	
 	}
 
 }
