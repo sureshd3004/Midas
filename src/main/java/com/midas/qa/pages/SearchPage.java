@@ -53,6 +53,8 @@ public class SearchPage extends TestBase {
 	@FindBy(xpath="//*[@id='ulSearchResultData']/table/tbody/tr/td[4]")
 	WebElement partNumberSearchResult;
 	
+	
+	
 	// Initializing the Page Objects:
 	public SearchPage() {
 		PageFactory.initElements(driver, this);

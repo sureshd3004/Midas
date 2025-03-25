@@ -1,158 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="4" passed="1" failed="1" skipped="0">
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-04T14:48:48 IST" name="Default suite" finished-at="2025-03-04T14:49:31 IST" duration-ms="43378">
+  <suite started-at="2025-03-25T14:14:22 IST" name="Default suite" finished-at="2025-03-25T14:14:32 IST" duration-ms="9671">
     <groups>
     </groups>
-    <test started-at="2025-03-04T14:48:48 IST" name="Default test" finished-at="2025-03-04T14:49:31 IST" duration-ms="43378">
-      <class name="com.midas.qa.testcases.ReqestCreationFlowTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.midas.qa.testcases.ReqestCreationFlowTest@10e31a9a]" started-at="2025-03-04T14:48:48 IST" name="setUp" finished-at="2025-03-04T14:48:56 IST" duration-ms="8062" status="PASS">
+    <test started-at="2025-03-25T14:14:22 IST" name="Default test" finished-at="2025-03-25T14:14:32 IST" duration-ms="9671">
+      <class name="com.midas.qa.testcases.LoginPageTest">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.midas.qa.testcases.LoginPageTest@76505305]" started-at="2025-03-25T14:14:22 IST" name="beforeSuite" finished-at="2025-03-25T14:14:22 IST" duration-ms="315" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.midas.qa.testcases.LoginPageTest@76505305]" started-at="2025-03-25T14:14:22 IST" name="setUp" finished-at="2025-03-25T14:14:32 IST" duration-ms="9219" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:1, instance:com.midas.qa.testcases.ReqestCreationFlowTest@10e31a9a]" started-at="2025-03-04T14:48:57 IST" name="login" data-provider="getloginData" finished-at="2025-03-04T14:49:10 IST" duration-ms="12829" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Marigold requestor ]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Welcome@123]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="LogoImageTest()[pri:2, instance:com.midas.qa.testcases.LoginPageTest@76505305]" started-at="2025-03-25T14:14:32 IST" name="LogoImageTest" finished-at="2025-03-25T14:14:32 IST" duration-ms="161" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- login -->
-        <test-method signature="openNewRequest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.midas.qa.testcases.ReqestCreationFlowTest@10e31a9a]" started-at="2025-03-04T14:49:10 IST" name="openNewRequest" data-provider="getRequestData" finished-at="2025-03-04T14:49:31 IST" depends-on-methods="com.midas.qa.testcases.ReqestCreationFlowTest.login" duration-ms="21173" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[New]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2071]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[\]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[ZROT]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[OEM]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Material]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Packaged]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[NEW]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//span[@aria-label='open']"}
-  (Session info: chrome=133.0.6943.142)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.14.0', revision: 'e5a96349ce'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f320ba77d65027c04aefb05239cc9511, findElement {using=xpath, value=//span[@aria-label='open']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.142, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: C:\Users\suresh\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54969}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54969/devtoo..., se:cdpVersion: 133.0.6943.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f320ba77d65027c04aefb05239cc9511]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[@aria-label='open']"}
-  (Session info: chrome=133.0.6943.142)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.14.0', revision: 'e5a96349ce'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f320ba77d65027c04aefb05239cc9511, findElement {using=xpath, value=//span[@aria-label='open']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.142, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: C:\Users\suresh\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54969}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54969/devtoo..., se:cdpVersion: 133.0.6943.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f320ba77d65027c04aefb05239cc9511
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.openqa.selenium.support.events.EventFiringWebDriver.lambda$new$1(EventFiringWebDriver.java:107)
-at jdk.proxy2/jdk.proxy2.$Proxy14.findElement(Unknown Source)
-at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:194)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
-at com.midas.qa.pages.RequestFlowPage.openNewRequest(RequestFlowPage.java:103)
-at com.midas.qa.testcases.ReqestCreationFlowTest.openNewRequest(ReqestCreationFlowTest.java:49)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openNewRequest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.midas.qa.testcases.ReqestCreationFlowTest@10e31a9a]" started-at="2025-03-04T14:49:31 IST" name="tearDown" finished-at="2025-03-04T14:49:31 IST" duration-ms="319" status="PASS">
+        </test-method> <!-- LogoImageTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.midas.qa.testcases.LoginPageTest@76505305]" started-at="2025-03-25T14:14:32 IST" name="tearDown" finished-at="2025-03-25T14:14:32 IST" duration-ms="255" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.midas.qa.testcases.ReqestCreationFlowTest -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.midas.qa.testcases.LoginPageTest@76505305]" started-at="2025-03-25T14:14:32 IST" name="afterSuite" finished-at="2025-03-25T14:14:32 IST" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.midas.qa.testcases.LoginPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

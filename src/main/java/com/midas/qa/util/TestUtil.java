@@ -31,15 +31,11 @@ import com.midas.qa.base.TestBase;
 public class TestUtil extends TestBase {
 
 	public static long PAGE_LOAD_TIMEOUT = 20;
-	//	public static long WAIT = 30;
 	static String currentDir = System.getProperty("user.dir");
 	public static String TESTDATA_SHEET_PATH = currentDir+ "/src/main/java/com/midas/qa/testdata/Data.xlsx";
 
 	static Workbook book;
 	static Sheet sheet;
-	//	static JavascriptExecutor js;
-	//	public static WebDriverWait wait ;
-
 
 	public static WebDriver switchNewWindow() {
 		String currentwindow = driver.getWindowHandle();
@@ -399,7 +395,7 @@ public class TestUtil extends TestBase {
 				System.out.println("role col indux = "+ roleColumnIndex);
 				String userName = row.getCell(1).getStringCellValue();
 				String password = row.getCell(2).getStringCellValue();
-		//		System.out.println("ser & pass = "+userName+password);
+				//		System.out.println("ser & pass = "+userName+password);
 				filteredData.add(new Object[]{userName, password}); // Removed 'role'
 				break;
 			}
@@ -494,62 +490,94 @@ public class TestUtil extends TestBase {
 		for (int i = 0; i < length; i++) {
 			sb.append(random.nextInt(10)); // Appends a random digit (0-9)
 		}return sb.toString();		    
-	           }
+	}
+
+	public static void sendValueToExcel(String sheetName, String columnHeader, String requestID) {
+		FileInputStream fis = null;
+		FileOutputStream fos = null;
+		Workbook workbook = null;
+
+		try {
+			// Open the Excel file
+			File file = new File(TESTDATA_SHEET_PATH);
+			fis = new FileInputStream(file);
+			workbook = new XSSFWorkbook(fis);
+			Sheet sheet = workbook.getSheet(sheetName);
+
+			if (sheet == null) {
+				System.err.println("Sheet not found: " + sheetName);
+				return;
+			}
+
+			// Find column index based on header
+			Row headerRow = sheet.getRow(0);
+			int columnIndex = -1;
+			for (Cell cell : headerRow) {
+				if (cell.getStringCellValue().equalsIgnoreCase(columnHeader)) {
+					columnIndex = cell.getColumnIndex();
+					break;
+				}
+			}
+
+			if (columnIndex == -1) {
+				System.err.println("Column not found: " + columnHeader);
+				return;
+			}
+
+			// Find the last row and append data
+			int lastRowNum = sheet.getLastRowNum();
+			Row newRow = sheet.createRow(lastRowNum + 1);
+			Cell newCell = newRow.createCell(columnIndex, CellType.STRING);
+			newCell.setCellValue(requestID);
+
+			// Save the updated file
+			fis.close(); // Close input stream before writing
+			fos = new FileOutputStream(file);
+			workbook.write(fos);		      
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (workbook != null) workbook.close();
+				if (fos != null) fos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}}
+
+	public static void waitStale() {
+		wait.until(ExpectedConditions.stalenessOf(driver.findElement(By.tagName("body"))));
+	}
+
+	public static void takeResultsToExcel(String testData) throws IOException {
 	
-		 public static void sendValueToExcel(String sheetName, String columnHeader, String requestID) {
-		        FileInputStream fis = null;
-		        FileOutputStream fos = null;
-		        Workbook workbook = null;
+			WebElement tableBody = driver.findElement(By.id("plantERPMatchFields"));
+			List<WebElement> rows = tableBody.findElements(By.tagName("tr"));
 
-		        try {
-		            // Open the Excel file
-		            File file = new File(TESTDATA_SHEET_PATH);
-		            fis = new FileInputStream(file);
-		            workbook = new XSSFWorkbook(fis);
-		            Sheet sheet = workbook.getSheet(sheetName);
+			// Create Excel workbook and sheet
+			Workbook workbook = new XSSFWorkbook();
+			Sheet sheet = workbook.createSheet(testData);
 
-		            if (sheet == null) {
-		                System.err.println("Sheet not found: " + sheetName);
-		                return;
-		            }
+			// Iterate through rows and extract key-value pairs
+			int rowIndex = sheet.getLastRowNum();
+			for (WebElement row : rows) {
+				List<WebElement> columns = row.findElements(By.tagName("td"));
+				if (columns.size() == 2) {
+					Row excelRow = sheet.createRow(rowIndex++);
+					excelRow.createCell(0).setCellValue(columns.get(0).getText().trim()); // Key
+					excelRow.createCell(1).setCellValue(columns.get(1).getText().trim()); // Value
+				//	System.out.println(columns.get(0).getText().trim());
+				}
+			}
 
-		            // Find column index based on header
-		            Row headerRow = sheet.getRow(0);
-		            int columnIndex = -1;
-		            for (Cell cell : headerRow) {
-		                if (cell.getStringCellValue().equalsIgnoreCase(columnHeader)) {
-		                    columnIndex = cell.getColumnIndex();
-		                    break;
-		                }
-		            }
+			// Write data to Excel file
+			
+			FileOutputStream fileOut = new FileOutputStream(testData+".xlsx");
+			workbook.write(fileOut);
+			fileOut.close();
+			workbook.close();
 
-		            if (columnIndex == -1) {
-		                System.err.println("Column not found: " + columnHeader);
-		                return;
-		            }
+			System.out.println("Data successfully written to " + testData+".xlsx");
+	
+	}}
 
-		            // Find the last row and append data
-		            int lastRowNum = sheet.getLastRowNum();
-		            Row newRow = sheet.createRow(lastRowNum + 1);
-		            Cell newCell = newRow.createCell(columnIndex, CellType.STRING);
-		            newCell.setCellValue(requestID);
-
-		            // Save the updated file
-		            fis.close(); // Close input stream before writing
-		            fos = new FileOutputStream(file);
-		            workbook.write(fos);		      
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		        } finally {
-		            try {
-		                if (workbook != null) workbook.close();
-		                if (fos != null) fos.close();
-		            } catch (IOException e) {
-		                e.printStackTrace();
-		            }
-		        }}
-
-		public static void waitStale() {
-			wait.until(ExpectedConditions.stalenessOf(driver.findElement(By.tagName("body"))));
-		}
-}

@@ -1,10 +1,10 @@
 package com.midas.qa.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.midas.qa.base.TestBase;
+import com.midas.qa.util.TestUtil;
 
 public class LoginPage extends TestBase{
 
@@ -52,14 +52,12 @@ public class LoginPage extends TestBase{
 		password.sendKeys(pwd);
 		loginBtn.click();
 
-	//	JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", Confirm);
-
-		clensing.click();   	
+		TestUtil.waitAndClickElement(Confirm);
+		TestUtil.waitAndClickElement(clensing);	
 		return new HomePage();
 	}
 
-	
+
 
 
 }
